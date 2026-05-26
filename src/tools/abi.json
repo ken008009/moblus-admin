@@ -1,0 +1,680 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "token_",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "stake_",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "user_",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "usdt_",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "a",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "off",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lim",
+				"type": "uint256"
+			}
+		],
+		"name": "children",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "baseStake",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basePerf",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "perf",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int8",
+						"name": "level",
+						"type": "int8"
+					},
+					{
+						"internalType": "uint16",
+						"name": "rate",
+						"type": "uint16"
+					}
+				],
+				"internalType": "struct ViewV1.ChildV[]",
+				"name": "out",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "globalView",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "bool",
+						"name": "open",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint40",
+						"name": "launchedAt",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint112",
+						"name": "reserveU",
+						"type": "uint112"
+					},
+					{
+						"internalType": "uint112",
+						"name": "reserveToken",
+						"type": "uint112"
+					},
+					{
+						"internalType": "uint112",
+						"name": "reserveUSnapshot",
+						"type": "uint112"
+					},
+					{
+						"internalType": "uint256",
+						"name": "priceA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "observed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dropBps",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "antiDumpTime",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "cbTime",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "newHighTime",
+						"type": "uint40"
+					},
+					{
+						"internalType": "bool",
+						"name": "needTrigger",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "needCountdown",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "needRecover",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "planCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "queueHead",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "queueTail",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "queueCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "queueWait",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "launchCutoff",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint256",
+						"name": "launchAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "launchDone",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "roundCount",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct ViewV1.GlobalV",
+				"name": "g",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "a",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "off",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lim",
+				"type": "uint256"
+			}
+		],
+		"name": "orders",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "cap",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "used",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "linePaid",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint40",
+						"name": "created",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "start",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "claimEffective",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "effectiveNow",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint32",
+						"name": "daysCount",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bool",
+						"name": "exited",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "capNow",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "left",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "comp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lineClaimable",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct ViewV1.OrderV[]",
+				"name": "out",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "plans",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint128",
+						"name": "minAmount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "maxAmount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "outAmount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint32",
+						"name": "daysCount",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bool",
+						"name": "enabled",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct ViewV1.PlanV[]",
+				"name": "out",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "startId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lim",
+				"type": "uint256"
+			}
+		],
+		"name": "queuePage",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint128",
+						"name": "liqU",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint40",
+						"name": "queuedAt",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "readyAt",
+						"type": "uint40"
+					},
+					{
+						"internalType": "bool",
+						"name": "ready",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "launch",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct ViewV1.QueueV[]",
+				"name": "out",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "off",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lim",
+				"type": "uint256"
+			}
+		],
+		"name": "rounds",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "start",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "end",
+						"type": "uint40"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct ViewV1.RoundV[]",
+				"name": "out",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "stake",
+		"outputs": [
+			{
+				"internalType": "contract VStake",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "token",
+		"outputs": [
+			{
+				"internalType": "contract VToken",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "usdt",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "user",
+		"outputs": [
+			{
+				"internalType": "contract VUser",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "a",
+				"type": "address"
+			}
+		],
+		"name": "userView",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "bool",
+						"name": "bound",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "sys",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "locked",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "parent",
+						"type": "address"
+					},
+					{
+						"internalType": "int8",
+						"name": "level",
+						"type": "int8"
+					},
+					{
+						"internalType": "uint16",
+						"name": "rate",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenBal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "usdtBal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "principalU",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "exemptToken",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "baseStake",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basePerf",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "perf",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "teamU",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "teamClaimed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "levelRewardTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "teamClearAt",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint40",
+						"name": "teamClearDeadline",
+						"type": "uint40"
+					},
+					{
+						"internalType": "bool",
+						"name": "teamExpired",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "orderCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "capLeftTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "teamNeedCap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lineClaimableTotal",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct ViewV1.UserV",
+				"name": "v",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
