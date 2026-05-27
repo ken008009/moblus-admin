@@ -1,10 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers'
-import {
-  CONTRACT_ADDRESS,
-  PROVIDER_URL,
-  VIEW_ABI,
-} from '@app/config/admin'
+import manageAbi from '@tools/manage.json'
+import { connectWallet } from '@app/config/wallet'
 import './index.less'
 
 // 格式化地址
@@ -22,12 +20,12 @@ const formatEther = (value) => {
   }
 }
 
-// 初始化只读 provider 和合约实例
-const provider = new ethers.providers.JsonRpcProvider(PROVIDER_URL)
-const contract = new ethers.Contract(CONTRACT_ADDRESS, VIEW_ABI, provider)
+// 初始化只读 provider 和合约实例（使用 manage.json ABI + .env 中的 VITE_VIEW_MANAGE）
+const provider = new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org/')
+const contract = new ethers.Contract(import.meta.env.VITE_VIEW_MANAGE, manageAbi, provider)
 
 // 数据表格区块组件
-const DataSection = ({ title, items }) => {
+const DataSection = ({ title, items, navigate }) => {
   if (!items || items.length === 0) {
     return (
       <div className="section">
@@ -69,7 +67,17 @@ const DataSection = ({ title, items }) => {
               <td className="amount col-amount">{formatEther(item.amount)}</td>
               <td className="count" style={{ textAlign: 'center' }}>{item.newOrderCount.toString()}</td>
               <td>
-                <button className="btn btn-primary">
+                <button
+                  className="btn btn-primary"
+                  onClick={async () => {
+                    try {
+                      await connectWallet()
+                      navigate(`/orders/${item.user}`)
+                    } catch (err) {
+                      alert('钱包连接失败: ' + (err.message || err))
+                    }
+                  }}
+                >
                   查看新系统订单
                 </button>
               </td>
@@ -86,6 +94,7 @@ const DataSection = ({ title, items }) => {
 
 // 主页面组件
 const Admin = () => {
+  const navigate = useNavigate()
   const [before442, setBefore442] = useState([])
   const [after442, setAfter442] = useState([])
   const [loading, setLoading] = useState(false)
@@ -121,11 +130,13 @@ const Admin = () => {
           <DataSection
             title="老系统已完成质押的钱包和金额汇总"
             items={before442}
+            navigate={navigate}
           />
           <hr className="divider" />
           <DataSection
             title="老系统撤单部分的钱包和金额汇总"
             items={after442}
+            navigate={navigate}
           />
         </>
       )}

@@ -1,0 +1,132 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "oldStaking_",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "newStaking_",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "SPLIT_INDEX",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAggregated",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "cancel",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOrderCount",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct StakeQueueAggregateView.Item[]",
+				"name": "before442",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "cancel",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOrderCount",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct StakeQueueAggregateView.Item[]",
+				"name": "after442",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getQueueLength",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "newStaking",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "oldStaking",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
