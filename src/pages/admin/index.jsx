@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers'
 import manageAbi from '@tools/manage.json'
@@ -99,6 +99,20 @@ const Admin = () => {
   const [after442, setAfter442] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [search, setSearch] = useState('')
+
+  // 类似 Vue 的 computed，根据搜索词过滤两个列表
+  const filteredBefore = useMemo(() => {
+    if (!search.trim()) return before442
+    const keyword = search.trim().toLowerCase()
+    return before442.filter((item) => item.user.toLowerCase().includes(keyword))
+  }, [before442, search])
+
+  const filteredAfter = useMemo(() => {
+    if (!search.trim()) return after442
+    const keyword = search.trim().toLowerCase()
+    return after442.filter((item) => item.user.toLowerCase().includes(keyword))
+  }, [after442, search])
 
   const loadData = useCallback(async () => {
     setLoading(true)
@@ -120,7 +134,20 @@ const Admin = () => {
   }, [loadData])
 
   return (
+    <>
     <div className="admin-page">
+      <div className="search-bar">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="输入钱包地址搜索..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        {search && (
+          <button className="search-clear" onClick={() => setSearch('')}>×</button>
+        )}
+      </div>
 
       {loading && <div className="loading">Loading...</div>}
       {error && <div className="error">加载失败: {error}</div>}
@@ -129,18 +156,30 @@ const Admin = () => {
         <>
           <DataSection
             title="老系统已完成质押的钱包和金额汇总"
-            items={before442}
+            items={filteredBefore}
             navigate={navigate}
           />
           <hr className="divider" />
           <DataSection
             title="老系统撤单部分的钱包和金额汇总"
-            items={after442}
+            items={filteredAfter}
             navigate={navigate}
           />
         </>
       )}
+
     </div>
+    <button
+      className="back-to-top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      title="回到顶部"
+      aria-label="回到顶部"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
+  </>
   )
 }
 
