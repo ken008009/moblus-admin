@@ -1,4 +1,7 @@
-html, body { background: #0f1115; }
+html, body {
+  background: #0f1115;
+  overflow-x: hidden;
+}
 
 .admin-page {
   padding: 12px;
@@ -6,6 +9,27 @@ html, body { background: #0f1115; }
   background: #0f1115;
   color: #e0e0e0;
   min-height: 100vh;
+  max-width: 100vw;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: #0f1115;
+  border-bottom: 1px solid #2a2d35;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .search-bar {
@@ -45,7 +69,9 @@ html, body { background: #0f1115; }
   &:hover { color: #fff; }
 }
 
-.section { margin-bottom: 32px; }
+.section {
+  margin-bottom: 32px;
+}
 .section-title {
   font-size: 18px;
   font-weight: 600;
@@ -53,10 +79,7 @@ html, body { background: #0f1115; }
   margin-bottom: 0;
   padding: 12px 0 8px;
   border-bottom: 1px solid #2a2d35;
-  position: sticky;
-  top: 0;
   background: #0f1115;
-  z-index: 2;
 }
 
 .loading, .empty {
@@ -108,6 +131,15 @@ tr:hover { background: #16181e; }
 .count {
   font-family: 'SF Mono', Monaco, monospace;
   color: #ffd54f;
+}
+
+.tag-active-node {
+  color: #4fc3f7;
+  font-weight: 500;
+}
+
+.tag-inactive-node {
+  color: #888;
 }
 
 .col-index {

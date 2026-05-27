@@ -10,6 +10,11 @@
 				"internalType": "address",
 				"name": "newStaking_",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "oldDividend_",
+				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -18,6 +23,49 @@
 	{
 		"inputs": [],
 		"name": "SPLIT_INDEX",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getActiveUserStats",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOrderCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "oldStakeCount",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct StakeQueueSplitAggregateView.ActiveUserItem[]",
+				"name": "list",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getActiveUsersLength",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -50,12 +98,17 @@
 						"type": "bool"
 					},
 					{
+						"internalType": "bool",
+						"name": "isActiveUser",
+						"type": "bool"
+					},
+					{
 						"internalType": "uint256",
 						"name": "newOrderCount",
 						"type": "uint256"
 					}
 				],
-				"internalType": "struct StakeQueueAggregateView.Item[]",
+				"internalType": "struct StakeQueueSplitAggregateView.QueueAggItem[]",
 				"name": "before442",
 				"type": "tuple[]"
 			},
@@ -77,12 +130,17 @@
 						"type": "bool"
 					},
 					{
+						"internalType": "bool",
+						"name": "isActiveUser",
+						"type": "bool"
+					},
+					{
 						"internalType": "uint256",
 						"name": "newOrderCount",
 						"type": "uint256"
 					}
 				],
-				"internalType": "struct StakeQueueAggregateView.Item[]",
+				"internalType": "struct StakeQueueSplitAggregateView.QueueAggItem[]",
 				"name": "after442",
 				"type": "tuple[]"
 			}
@@ -106,6 +164,19 @@
 	{
 		"inputs": [],
 		"name": "newStaking",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "oldDividend",
 		"outputs": [
 			{
 				"internalType": "address",
