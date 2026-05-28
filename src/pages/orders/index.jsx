@@ -189,7 +189,11 @@ const Orders = () => {
   return (
     <div className="orders-page">
       <div className="orders-header">
-        <button className="btn" onClick={() => navigate(-1)}>← </button>
+        <button className="btn btn-back" onClick={() => navigate(-1)} aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
         <h2>新系统订单 - <span className="addr">{formatAddress(userAddress)}</span></h2>
       </div>
 
@@ -203,18 +207,16 @@ const Orders = () => {
         <table>
           <thead>
             <tr>
-              <th>#</th>
-              <th>本单金额</th>
-              <th>当前出局额度</th>
-              <th style={{ textAlign: 'center' }}>已经出局（管理员不要点按钮）</th>
+              <th>序号</th>
+              <th>出局额度</th>
+              <th style={{ textAlign: 'center' }}>是否出局</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((o, i) => (
               <tr key={i}>
-                <td>{i + 1}</td>
-                <td className="amount">{formatEther(o.amount)}</td>
+                <td className="count">{i + 1}</td>
                 <td className="amount">{formatEther(o.cap)}</td>
                 <td style={{ textAlign: 'center' }}>
                   <span className={o.exited ? 'tag-exited' : 'tag-active'}>

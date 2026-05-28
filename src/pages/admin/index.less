@@ -117,6 +117,12 @@ th {
 
 tr:hover { background: #16181e; }
 
+.summary-row {
+  background: #1a1d24;
+  border-bottom: 2px solid #2a6fb5;
+  font-weight: 600;
+}
+
 .addr {
   font-family: 'SF Mono', Monaco, monospace;
   font-size: 13px;
@@ -136,10 +142,16 @@ tr:hover { background: #16181e; }
 .tag-active-node {
   color: #4fc3f7;
   font-weight: 500;
+  background: rgba(79, 195, 247, 0.15);
+  padding: 4px 12px;
+  border-radius: 4px;
 }
 
 .tag-inactive-node {
   color: #888;
+  background: rgba(136, 136, 136, 0.15);
+  padding: 4px 12px;
+  border-radius: 4px;
 }
 
 .col-index {
@@ -150,6 +162,10 @@ tr:hover { background: #16181e; }
 
 .col-amount {
   text-align: right;
+}
+
+.col-new-stake {
+  min-width: 110px;
 }
 
 .btn {

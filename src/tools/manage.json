@@ -8,12 +8,12 @@
 			},
 			{
 				"internalType": "address",
-				"name": "newStaking_",
+				"name": "oldDividend_",
 				"type": "address"
 			},
 			{
 				"internalType": "address",
-				"name": "oldDividend_",
+				"name": "newUser_",
 				"type": "address"
 			}
 		],
@@ -23,49 +23,6 @@
 	{
 		"inputs": [],
 		"name": "SPLIT_INDEX",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getActiveUserStats",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "newOrderCount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "oldStakeCount",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct StakeQueueSplitAggregateView.ActiveUserItem[]",
-				"name": "list",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getActiveUsersLength",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -89,13 +46,13 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "oldStakedAmount",
 						"type": "uint256"
 					},
 					{
-						"internalType": "bool",
-						"name": "cancel",
-						"type": "bool"
+						"internalType": "uint256",
+						"name": "oldQueuedAmount",
+						"type": "uint256"
 					},
 					{
 						"internalType": "bool",
@@ -104,44 +61,12 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "newOrderCount",
+						"name": "newStakeOf",
 						"type": "uint256"
 					}
 				],
-				"internalType": "struct StakeQueueSplitAggregateView.QueueAggItem[]",
-				"name": "before442",
-				"type": "tuple[]"
-			},
-			{
-				"components": [
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "cancel",
-						"type": "bool"
-					},
-					{
-						"internalType": "bool",
-						"name": "isActiveUser",
-						"type": "bool"
-					},
-					{
-						"internalType": "uint256",
-						"name": "newOrderCount",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct StakeQueueSplitAggregateView.QueueAggItem[]",
-				"name": "after442",
+				"internalType": "struct OldQueueUserAggregateView.UserAgg[]",
+				"name": "list",
 				"type": "tuple[]"
 			}
 		],
@@ -163,7 +88,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "newStaking",
+		"name": "newUser",
 		"outputs": [
 			{
 				"internalType": "address",
