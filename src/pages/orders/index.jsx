@@ -69,7 +69,7 @@ const SetCapModal = ({ visible, order, userAddress, onClose, onSuccess }) => {
       onClose()
     } catch (err) {
       console.error('setOrderCap 失败:', err)
-      setError(err.reason || err.message || String(err))
+      setError('设置失败，请检查钱包权限或联系管理员')
     } finally {
       setSubmitting(false)
     }
